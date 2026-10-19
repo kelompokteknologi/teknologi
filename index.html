@@ -1,0 +1,665 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXORA TECH | Future Technology</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #070b16;
+      color: #f4f7ff;
+      line-height: 1.6;
+    }
+
+    :root {
+      --blue: #4ca8ff;
+      --cyan: #50f0e0;
+      --dark: #070b16;
+      --muted: #a6b0c8;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 11, 22, 0.95);
+      border-bottom: 1px solid #1b2942;
+    }
+
+    nav {
+      min-height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .menu-btn {
+      display: none;
+      color: white;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 80px 0;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .tag {
+      color: var(--cyan);
+      letter-spacing: 3px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 70px);
+      line-height: 1.1;
+      margin: 22px 0;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 550px;
+      font-size: 17px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .btn-primary {
+      color: #06101b;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+    }
+
+    .btn-secondary {
+      color: white;
+      border: 1px solid #34435e;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px #4ca8ff30;
+    }
+
+    .hero-visual {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 350px;
+    }
+
+    .tech-orb {
+      width: 300px;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      border: 2px solid #4ca8ff70;
+      background:
+        radial-gradient(circle at 30% 25%, #50f0e060, transparent 40%),
+        radial-gradient(circle, #123968, #070b16 70%);
+      box-shadow: 0 0 60px #1688c855,
+                  inset 0 0 50px #4ca8ff30;
+      animation: floating 4s ease-in-out infinite;
+      position: relative;
+    }
+
+    .tech-orb::before,
+    .tech-orb::after {
+      content: "";
+      position: absolute;
+      inset: -20px;
+      border: 1px solid #50f0e060;
+      border-radius: 50%;
+      transform: rotateX(65deg);
+    }
+
+    .tech-orb::after {
+      transform: rotateY(65deg);
+      border-color: #4ca8ff70;
+    }
+
+    .orb-text {
+      text-align: center;
+      font-size: 45px;
+      font-weight: bold;
+      color: var(--cyan);
+      text-shadow: 0 0 25px var(--cyan);
+    }
+
+    @keyframes floating {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(30px, 4vw, 42px);
+      margin: 12px 0;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      padding: 28px;
+      border: 1px solid #24334d;
+      background: linear-gradient(145deg, #111b30, #0a1020);
+      border-radius: 15px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: var(--cyan);
+      box-shadow: 0 12px 35px #0005;
+    }
+
+    .card-icon {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: var(--cyan);
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-size: clamp(30px, 4vw, 43px);
+      line-height: 1.2;
+      margin: 15px 0;
+    }
+
+    .about p {
+      color: var(--muted);
+    }
+
+    .about-list {
+      margin: 25px 0;
+      list-style: none;
+    }
+
+    .about-list li {
+      margin: 13px 0;
+    }
+
+    .about-list li::before {
+      content: "✓";
+      color: var(--cyan);
+      margin-right: 12px;
+    }
+
+    .dashboard {
+      padding: 25px;
+      border-radius: 16px;
+      border: 1px solid #24334d;
+      background: #0e172a;
+    }
+
+    .dashboard h3 {
+      margin-bottom: 25px;
+    }
+
+    .bar {
+      height: 13px;
+      background: #1b2b46;
+      border-radius: 10px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      width: 0;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      transition: width 1.5s ease;
+    }
+
+    .dashboard p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .contact-box {
+      text-align: center;
+      padding: 55px 25px;
+      border: 1px solid #294667;
+      border-radius: 20px;
+      background: radial-gradient(circle at top, #12345b, #0b1120 70%);
+    }
+
+    .contact-box h2 {
+      font-size: clamp(30px, 4vw, 43px);
+      margin: 15px 0;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid #24334d;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero p {
+        margin: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: #070b16;
+        flex-direction: column;
+        gap: 18px;
+        border-bottom: 1px solid #24334d;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .tech-orb {
+        width: 230px;
+        height: 230px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="container">
+    <a href="#beranda" class="logo" style="text-decoration:none;color:white">
+      NEXORA <span>TECH</span>
+    </a>
+
+    <button class="menu-btn" id="menuBtn"
+      aria-label="Buka menu" aria-expanded="false">☰</button>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#beranda">Beranda</a>
+      <a href="#teknologi">Teknologi</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="container hero" id="beranda">
+    <div class="hero-content">
+      <div class="tag">✦ INOVASI MASA DEPAN</div>
+
+      <h1>
+        Masa Depan Dimulai
+        <span class="gradient">Hari Ini.</span>
+      </h1>
+
+      <p>
+        Selamat datang di NEXORA TECH, tempat inovasi digital,
+        kecerdasan buatan, dan teknologi modern bertemu untuk
+        menciptakan masa depan yang lebih cerdas.
+      </p>
+
+      <div class="buttons">
+        <a href="#teknologi" class="btn btn-primary">
+          Jelajahi Teknologi →
+        </a>
+
+        <a href="#tentang" class="btn btn-secondary">
+          Tentang Kami
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="tech-orb">
+        <div class="orb-text">NEX<br>AI</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="teknologi">
+    <div class="container">
+      <div class="section-title">
+        <div class="tag">TEKNOLOGI MODERN</div>
+        <h2>Menjelajahi Dunia <span class="gradient">Digital</span></h2>
+        <p>
+          Temukan teknologi inovatif yang mengubah cara manusia
+          bekerja, berkomunikasi, dan menjalani kehidupan.
+        </p>
+      </div>
+
+      <div class="features">
+        <article class="card">
+          <div class="card-icon">🤖</div>
+          <h3>Artificial Intelligence</h3>
+          <p>
+            Kecerdasan buatan membantu manusia mengolah informasi,
+            memahami pola, dan menyelesaikan berbagai pekerjaan.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">💻</div>
+          <h3>Inovasi Digital</h3>
+          <p>
+            Mengembangkan solusi digital modern untuk meningkatkan
+            kreativitas, produktivitas, dan efisiensi.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🔐</div>
+          <h3>Cyber Security</h3>
+          <p>
+            Melindungi informasi dan menjaga keamanan aktivitas
+            digital dari berbagai ancaman siber.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🌐</div>
+          <h3>Internet of Things</h3>
+          <p>
+            Menghubungkan perangkat pintar untuk menciptakan
+            lingkungan yang lebih otomatis dan efisien.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">📊</div>
+          <h3>Data Analytics</h3>
+          <p>
+            Mengubah data menjadi informasi yang bermanfaat
+            untuk memahami tren dan mengambil keputusan.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">☁️</div>
+          <h3>Cloud Computing</h3>
+          <p>
+            Mengakses aplikasi dan menyimpan data melalui
+            infrastruktur cloud yang fleksibel.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="tentang">
+    <div class="container about">
+      <div>
+        <div class="tag">TENTANG NEXORA</div>
+
+        <h2>
+          Menghubungkan Ide dengan
+          <span class="gradient">Masa Depan.</span>
+        </h2>
+
+        <p>
+          NEXORA TECH hadir sebagai ruang eksplorasi teknologi
+          modern yang inspiratif, informatif, dan mudah dipahami.
+          Kami percaya bahwa pengetahuan teknologi dapat membuka
+          peluang baru bagi setiap orang.
+        </p>
+
+        <ul class="about-list">
+          <li>Wawasan teknologi modern</li>
+          <li>Inspirasi inovasi digital</li>
+          <li>Eksplorasi kecerdasan buatan</li>
+          <li>Perspektif teknologi masa depan</li>
+        </ul>
+
+        <a href="#kontak" class="btn btn-primary">
+          Mulai Eksplorasi →
+        </a>
+      </div>
+
+      <div class="dashboard">
+        <h3>Technology Dashboard</h3>
+        <p>Artificial Intelligence</p>
+        <div class="bar"><span data-width="90%"></span></div>
+
+        <p>Digital Innovation</p>
+        <div class="bar"><span data-width="80%"></span></div>
+
+        <p>Cloud Technology</p>
+        <div class="bar"><span data-width="75%"></span></div>
+
+        <p>Cyber Security</p>
+        <div class="bar"><span data-width="85%"></span></div>
+
+        <p style="margin-top:25px;color:#50f0e0">
+          ✦ Inovasi hari ini membentuk dunia esok.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <div class="container">
+      <div class="contact-box">
+        <div class="tag">MASA DEPAN MENANTI</div>
+
+        <h2>
+          Siap Menjelajahi
+          <span class="gradient">Masa Depan?</span>
+        </h2>
+
+        <p>
+          Terus belajar, berinovasi, dan jadilah bagian
+          dari perkembangan teknologi digital.
+        </p>
+
+        <a class="btn btn-primary"
+           href="mailto:hello@nexoratech.example">
+          Hubungi Kami ↗
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© <span id="year"></span> NEXORA TECH.</p>
+    <p>Innovation • Technology • Future</p>
+  </div>
+</footer>
+
+<script>
+  // Menu navigasi untuk perangkat mobile
+  const menuBtn = document.getElementById("menuBtn");
+  const navLinks = document.getElementById("navLinks");
+
+  menuBtn.addEventListener("click", function () {
+    const open = navLinks.classList.toggle("open");
+
+    menuBtn.textContent = open ? "×" : "☰";
+    menuBtn.setAttribute("aria-expanded", String(open));
+  });
+
+  // Tutup menu setelah tautan dipilih
+  document.querySelectorAll(".nav-links a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      navLinks.classList.remove("open");
+      menuBtn.textContent = "☰";
+      menuBtn.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  // Tahun otomatis pada footer
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  // Animasi grafik saat bagian dashboard terlihat
+  const dashboard = document.querySelector(".dashboard");
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        document.querySelectorAll(".bar span").forEach(function (bar) {
+          bar.style.width = bar.dataset.width;
+        });
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(dashboard);
+</script>
+
+</body>
+</html>
